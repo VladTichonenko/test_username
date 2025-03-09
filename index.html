@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Телеграм Имя</title>
+</head>
+<body>
+    <h1>Добро пожаловать!</h1>
+    <p id="username">Загрузка...</p>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = getQueryParam("user") || "Гость";
+            document.getElementById("username").textContent = username !== "Гость" ? `Ваше имя в Telegram: @${username}` : "Имя пользователя не передано.";
+        });
+    </script>
+</body>
+</html>
